@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Repositories.Repos.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +10,13 @@ namespace HairdressingAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SharedController : ControllerBase
+    public class PricesControler : ControllerBase
     {
-        public SharedController() 
+        private readonly IPricesRepository repository;
+
+        public PricesControler(IPricesRepository repository)
         {
-        }
-        [HttpGet]
-        public bool Get()
-        {
-            return true;
+            this.repository = repository;
         }
     }
 }
