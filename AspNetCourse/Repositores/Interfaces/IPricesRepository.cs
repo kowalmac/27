@@ -5,10 +5,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Repositories.Repos.Interfaces
+namespace Repositories.Interfaces
 {
     public interface IPricesRepository
-    {
+    { 
         Task<int> AddAsync(Price item);
         Task<bool> DeleteAsync(int id);
         void Dispose();

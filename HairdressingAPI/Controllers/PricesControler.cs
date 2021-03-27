@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Repositories.Repos.Interfaces;
+using Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +17,21 @@ namespace HairdressingAPI.Controllers
         public PricesControler(IPricesRepository repository)
         {
             this.repository = repository;
+        }
+        [HttpGet]
+        public async Task<IActionResult> Get() 
+        {
+            try
+            {
+                return Ok(await repository.GetListAsync());
+
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+            
         }
     }
 }
